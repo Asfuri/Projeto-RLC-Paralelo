@@ -40,5 +40,13 @@ int main() {
     printf("D1 %g\n", D1);
     printf("D2 %g\n", D2);
   } else {
+    double omegad, B1, B2;
+    omegad = sqrt(pow(omega0, 2) - pow(sigma, 2));
+    B1 = vc0;
+    printf("ic0 %g\n", ic0);
+    B2 = (y - sigma * B1) / omegad;
+    printf("y %g\n", y);
+    printf("B1 %g\n", B1);
+    printf("B2 %g\n", B2);
   }
 }
