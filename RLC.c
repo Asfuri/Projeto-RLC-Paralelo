@@ -44,8 +44,7 @@ int main() {
     omegad = sqrt(pow(omega0, 2) - pow(sigma, 2));
     B1 = vc0;
     printf("ic0 %g\n", ic0);
-    B2 = (y - sigma * B1) / omegad;
-    printf("y %g\n", y);
+    B2 = (-y + sigma * B1) / omegad;
     printf("B1 %g\n", B1);
     printf("B2 %g\n", B2);
   }
