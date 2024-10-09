@@ -35,7 +35,7 @@ int main() {
     A1 = vc0 - A2;
     printf("A1 %g\n", A1);
     printf("A2 %g\n", A2);
-    tm = log(((s1 * A1) / (s2 * A2))) / (s2 - s1);
+    tm = -(log(-(A1*s1)/(A2*s2))/(s1-s2));
     printf("tm %g\n", tm);
     vtm = A1 * exp(s1 * tm) + A2 * exp(s2 * tm);
     printf("vtm %g\n", vtm);
