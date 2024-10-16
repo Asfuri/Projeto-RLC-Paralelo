@@ -1,6 +1,22 @@
 #include <math.h>
 #include <stdio.h>
 
+double checaSeNumero() {
+  double num;
+  int resultado;
+  int c;
+  while (1) {
+    resultado = scanf("%lf", &num);
+    if (resultado == 1) {
+      break;
+    } else {
+      printf("Digite um numero!\n");
+      while ((c = getchar()) != '\n' && c != EOF);
+    }
+  }
+  return num;
+}
+
 void transformarResposta(double resposta, int prefixo) {
   if (resposta >= 1000000 || resposta <= -1000000) {
     resposta = resposta / 1000000;
@@ -46,21 +62,20 @@ void transformarResposta(double resposta, int prefixo) {
 double prefixo(double valor) {
   printf("Digite seu prefixo:\n");
   printf("0 - Sem prefixo. 1 - Quilo (k). 2 - Mili (m). 3 - Micro (u). 4 - Nano (n).\n");
-  char prefixo;
-  getchar();
-  prefixo = getchar();
+  int prefixo;
+  prefixo = checaSeNumero();
   double resultado = 0;
   switch (prefixo) {
-  case '1':
+  case 1:
     resultado = valor * 1000;
     break;
-  case '2':
+  case 2:
     resultado = valor / 1000;
     break;
-  case '3':
+  case 3:
     resultado = valor / 1000000;
     break;
-  case '4':
+  case 4:
     resultado = valor / 1000000000;
     break;
   default:
@@ -77,27 +92,27 @@ int main() {
   while (tentarNovamente != 0) {
     double Rtemp, Ltemp, Ctemp, sigma, omega0, omegad, s1, s2, il0temp, vc0temp, ir0, ic0, vl0, vr0, y, tm, vtm;
     printf("Digite a resistencia do resistor equivalente: \n");
-    scanf("%lf", &Rtemp);
+    Rtemp = checaSeNumero();
     double R = prefixo(Rtemp);
     transformarResposta(R, 1);
     printf("Ohms\n");
     printf("Digite a indutancia do indutor equivalente: \n");
-    scanf("%lf", &Ltemp);
+    Ltemp = checaSeNumero();
     double L = prefixo(Ltemp);
     transformarResposta(L, 1);
     printf("H\n");
     printf("Digite a capacitancia do capacitor equivalente: \n");
-    scanf("%lf", &Ctemp);
+    Ctemp = checaSeNumero();
     double C = prefixo(Ctemp);
     transformarResposta(C, 1);
     printf("F\n");
     printf("Digite a tensao inicial do capacitor: \n");
-    scanf("%lf", &vc0temp);
+    vc0temp = checaSeNumero();
     double vc0 = prefixo(vc0temp);
     transformarResposta(vc0, 1);
     printf("V\n");
     printf("Digite a corrente inicial do indutor: \n");
-    scanf("%lf", &il0temp);
+    il0temp = checaSeNumero();
     double il0 = prefixo(il0temp);
     transformarResposta(il0, 1);
     printf("A\n");
@@ -179,6 +194,6 @@ int main() {
     }
     tentarNovamente = 0;
     printf("Quer tentar novamente? (1-Sim 0-Nao)\n");
-    scanf("%d", &tentarNovamente);
+    tentarNovamente = checaSeNumero();
   }
 }
