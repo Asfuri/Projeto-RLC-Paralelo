@@ -2,6 +2,7 @@
 
 - ### [:dart: Objetivo](#dart-objetivo-1)
 - ### [:gear: Documentação](#gear-documentação-1)
+- ### [:bar_chart: Fórmulas](#bar_chart-fórmulas-1)
 - ### [:wrench: Como rodar](#wrench-como-rodar-1)
 - ### [:arrow_down: Baixar o projeto](https://github.com/Asfuri/Projeto-RLC-Paralelo/archive/refs/heads/main.zip)
 
