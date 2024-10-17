@@ -236,6 +236,8 @@ Para achar o tempo para o alcance da tensão máxima ou mínima, é necessário 
 
 $$ \large t_m = \frac{arc tg(\frac{\omega_d \cdot B_2 - \sigma \cdot B_1}{\omega_d \cdot B_1 + \sigma \cdot B_2})}{\omega_d} $$
 
+Se o tempo resultar em um valor negativo, isso indicará que, matematicamente, haveria um máximo ou mínimo antes de t=0, que é o nosso instante inicial de resposta natural. Para garantir a correção e a congruência com a física do mundo real, somamos meio período da função ao t<sub>m</sub>; ou seja, somamos π/ω<sub>d</sub>.
+
 Possuindo todas as variáveis da equação e o t<sub>m</sub>, basta calcular v(t<sub>m</sub>) e achar o valor esperado. 
 
 ## :wrench: Como rodar
