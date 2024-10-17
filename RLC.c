@@ -1,6 +1,12 @@
+/*
+  Esse código depende de informações primordiais que se encontram do repositório no github:
+  https://github.com/Asfuri/Projeto-RLC-Paralelo
+*/
+
 #include <math.h>
 #include <stdio.h>
 
+// Função para solicitar repetidamente um número válido como entrada
 double checaSeNumero() {
   double num;
   int resultado;
@@ -17,39 +23,68 @@ double checaSeNumero() {
   return num;
 }
 
+
+/*
+  Função que transforma e exibe um valor numérico com ou sem prefixos de unidade
+  @param resposta = Valor a ser convertido
+  @param prefixo = Condição de exibir o prefixo, 1 para exibir
+  M -> Mega 10^6
+  K -> Quilo 10^3
+  m -> Mili 10^-3
+  u -> Micro 10^-6
+  n -> Nano 10^-9
+*/
 void transformarResposta(double resposta, int prefixo) {
+
+// Verifica se o valor é maior ou igual a 10^6 ou menor ou igual a -10^6
   if (resposta >= 1000000 || resposta <= -1000000) {
+  // Converte para Mega e exibe o número
     resposta = resposta / 1000000;
     if (prefixo == 1) {
       printf("%g M", resposta);
     } else {
       printf("%g * 10^6", resposta);
     }
+
+// Verifica se o valor é maior ou igual a 10^3 ou menor ou igual a -10^3
   } else if (resposta >= 1000 || resposta <= -1000) {
+  // Converte para Quilo e exibe o número
     resposta = resposta / 1000;
     if (prefixo == 1) {
       printf("%g k", resposta);
     } else {
       printf("%g * 10^3", resposta);
     }
+
+// Verifica se o valor é maior ou igual a 10^0 ou menor ou igual a -10^0
   } else if (resposta >= 1 || resposta <= -1) {
+  // Exibe o número
     resposta = resposta;
     printf("%g ", resposta);
+
+// Verifica se o valor é maior ou igual a 10^-3 ou menor ou igual a -10^-3
   } else if (resposta >= 0.001 || resposta <= -0.001) {
+  // Converte para Mili e exibe o número
     resposta = resposta * 1000;
     if (prefixo == 1) {
       printf("%g m", resposta);
     } else {
       printf("%g * 10^-3", resposta);
     }
+
+// Verifica se o valor é maior ou igual a 10^-6 ou menor ou igual a -10^-6
   } else if (resposta >= 0.000001 || resposta <= -0.000001) {
+  // Converte para Micro e exibe o número
     resposta = resposta * 1000000;
     if (prefixo == 1) {
       printf("%g u", resposta);
     } else {
       printf("%g * 10^-6", resposta);
     }
+
+// Verifica se o valor é maior ou igual a 10^-9 ou menor ou igual a -10^-9
   } else if (resposta >= 0.000000001 || resposta <= -0.000000001) {
+  // Converte para Nano e exibe o número
     resposta = resposta * 1000000000;
     if (prefixo == 1) {
       printf("%g n", resposta);
@@ -59,12 +94,15 @@ void transformarResposta(double resposta, int prefixo) {
   }
 }
 
+// Função que ajusta um valor numérico com base no prefixo escolhido pelo usuário.
+// Essa é a função que dá opções de prefixo para as unidade
 double prefixo(double valor) {
   printf("Digite seu prefixo:\n");
   printf("0 - Sem prefixo. 1 - Quilo (k). 2 - Mili (m). 3 - Micro (u). 4 - Nano (n).\n");
   int prefixo;
   prefixo = checaSeNumero();
   double resultado = 0;
+  // Verifica a opção escolhida pelo usuário
   switch (prefixo) {
   case 1:
     resultado = valor * 1000;
