@@ -22,6 +22,35 @@ Esse foi um projeto desenvolvido por discentes do curso de *Engenharia da Comput
 
 ## :dart: Objetivo:
 
+O objetivo proposto foi desenvolver um programa em Linguagem C[^1] para apresentar , no terminal, os resultados da resposta natural de circuitos RLC em paralelo. Isto é, um circuito de segunda ordem que possui um resistor equivalente, um capacitor equivalente e um indutor equivalente após uma mudança no estado inicial ( carga forçada ) do circuito. As tensões dos componentes serão equivalentes para todo e qualquer t > 0, considerando t = 0 como o instante em que ocorre a mudança do circuto inicial para a equivalência com a resposta natural.[^2]
+
+[^1]: [Linguagem C](https://pt.wikipedia.org/wiki/C_(linguagem_de_programa%C3%A7%C3%A3o))
+[^2]: [Circuito RLC em paralelo](https://embarcados.com.br/circuito-rlc-paralelo/)
+
+O programa deve receber os seguintes dados de entrada:
+- Os valores dos componentes e suas respectivas cargas iniciais, sendo fornecidas opções para a escolha das unidades:
+  - R -> Resistência equivalente
+  - L -> Indutância equivalente
+  - C -> Capacitância equivalente
+  - v<sub>C</sub>(t=0) -> Tensão inicial no capacitor equivalente 
+  - i<sub>L</sub>(t=0) -> Corrente inicial no indutor equivalente
+
+O programa deve fornecer os seguintes dados de saída:
+- Nome(s) do(s) autor(es)
+- Valores de **σ** (Sigma), **ω<sub>0</sub>** (Ômega 0)
+- Tipo de circuito e seus respectivos valores específicos, sendo eles:
+  - Circuito Superamortecido  ->  s<sub>1</sub>, s<sub>2</sub>, A<sub>1</sub> e A<sub>2</sub>
+  - Circuito Criticamente Amortecido  ->  A<sub>1</sub> e A<sub>2</sub>
+  - Circuito Subamortecido  ->  **ω<sub>d</sub>** (Ômega d), B<sub>1</sub> e B<sub>2</sub>
+- Valores de **t<sub>m</sub>** (Tempo de Tensão Máxima ou Mínima) e **v(t<sub>m</sub>)** (Valor da tensão Máxima ou Mínima)
+
+Todas as entradas e saídas devem obedecer o padrão estabelecido pelo S.I.[^3].
+
+[^3]:[Sistema Internacional de Unidades](https://pt.wikipedia.org/wiki/Sistema_Internacional_de_Unidades)
+
+Para a padronização das respostas, as condições iniciais para o circuito têm as seguintes notações:
+
+![Captura de tela 2024-10-16 220340](https://github.com/user-attachments/assets/0049c77f-b52f-44cb-b06f-799eb1f9b8b6)
 
 ## :gear: Documentação
 Dependências
