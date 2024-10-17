@@ -1,7 +1,7 @@
 # :zap: Simulação de Circuitos RLC Paralelo
 
 - ### [:dart: Objetivo](#dart-objetivo-1)
-- ### [:gear: Documentação](#gear-documentacao-1)
+- ### [:gear: Documentação](#gear-documentação-1)
 - ### [:wrench: Como rodar](#wrench-como-rodar-1)
 - ### [:arrow_down: Baixar o projeto](https://github.com/Asfuri/Projeto-RLC-Paralelo/archive/refs/heads/main.zip)
 
@@ -18,7 +18,7 @@ Esse foi um projeto desenvolvido por discentes do curso de *Engenharia da Comput
 
 -  	:zap: Mardson Freitas de Amorim
 
-[![360_F_477196087_Sopm1X0RnYmYYNHbJwiFTMhxGPcnki0S](https://github.com/user-attachments/assets/89d8d7dd-6977-4e5d-9de5-c100b286af56)](#zap-simulacao-de-circuitos-rlc-paralelo)
+[![360_F_477196087_Sopm1X0RnYmYYNHbJwiFTMhxGPcnki0S](https://github.com/user-attachments/assets/89d8d7dd-6977-4e5d-9de5-c100b286af56)](#zap-simulação-de-circuitos-rlc-paralelo)
 
 ## :dart: Objetivo:
 
@@ -29,7 +29,7 @@ Dependências
 
 ## :wrench: Como rodar
 
-[**Atenção:** Lembre de baixar o projeto e extraí-lo devidamente do `.zip`.](#zap-simulacao-de-circuitos-rlc-paralelo)
+[**Atenção:** Lembre de baixar o projeto e extraí-lo devidamente do `.zip`.](#zap-simulação-de-circuitos-rlc-paralelo)
 
 ***Requisitos***
 - Um terminal de linha de comando
