@@ -52,11 +52,11 @@ Para a padronização das respostas, as condições iniciais para o circuito tê
 
 ![Captura de tela 2024-10-16 220340](https://github.com/user-attachments/assets/0049c77f-b52f-44cb-b06f-799eb1f9b8b6)
 
-## :gear: Documentação
+# :gear: Documentação
 
 Conforme as informações relatadas na seção (Objetivo)[#dart-objetivo-1], a complexidade do programa está nos cálculos a partir das fórmulas vistas na disciplina. Com base nisso, a documentação aqui apresentada dá ênfase a essa complexidade, relevando algumas nuances presentes no código. 
 
-### :abacus: Dependências
+## :abacus: Dependências
 
 Este projeto foi desenvolvido utilizando apenas funcionalidades da biblioteca padrão da Linguagem C[^3][^4], ou seja, nenhuma biblioteca externa foi incluída no código.
 
@@ -68,7 +68,7 @@ Este projeto foi desenvolvido utilizando apenas funcionalidades da biblioteca pa
 - **`<math.h>`**:  Utilizada para realizar operações matemáticas complexas, como funções trigonométricas (sin, cos), exponenciais (exp) e logarítmicas (log).
   - **Implementação:**  Essencial nos cálculos incluídos na proposta do programa, como o cálculo da frequência de ressonância, permitindo a análise precisa do comportamento do circuito.
  
-### :bar_chart: Fórmulas
+## :bar_chart: Fórmulas
 
 Todas as fórmulas utilizadas foram deduzidas a partir da análise das equações fundamentais com valores literais, ou seja, as variáveis (paramâmetros como coeficientes e constantes, tal como, incógnitas e variáveis dependentes) foram manipuladas com o objetivo de chegar em uma fórmula direta.
 
@@ -90,7 +90,7 @@ $$ \sigma = \frac{1}{2 \cdot R \cdot C} $$
 
 $$ \omega_0 = \frac{1}{\sqrt{L \cdot C}} $$
 
-- Para **σ**<sup>2</sup> > **ω<sub>0</sub>**<sup>2</sup> - Circuito Superamortecido
+### Para **σ**<sup>2</sup> > **ω<sub>0</sub>**<sup>2</sup> - Circuito Superamortecido
 
 $$ S_1 = -\sigma + \sqrt{\sigma^2 - \omega_0^2} $$
 
@@ -152,7 +152,7 @@ $$ tm = \frac{ln |A_1s_1| - ln |-A_2s_2|}{s_2 - s_1}$$
 
 Possuindo todas as variáveis da equação e o tm, basta calcular v(tm) e achar o valor esperado. 
 
-- Para **σ**<sup>2</sup> = **ω<sub>0</sub>**<sup>2</sup> - Circuito Criticamente Amortecido
+### Para **σ**<sup>2</sup> = **ω<sub>0</sub>**<sup>2</sup> - Circuito Criticamente Amortecido
 
 A fórmula geral da tensão nos componenetes do Circuito Criticamente Amortecido é dada por:
 
@@ -192,6 +192,35 @@ $$ tm = \frac{1}{\sigma} - \frac{A_2}{A_1} = \frac{A_1-(A_2\sigma)}{A_1\sigma}$$
 
 Possuindo todas as variáveis da equação e o tm, basta calcular v(tm) e achar o valor esperado. 
 
+### Para **σ**<sup>2</sup> < **ω<sub>0</sub>**<sup>2</sup> - Circuito Subamortecido
+
+A fórmula geral da tensão nos componenetes do Circuito Subamortecido é dada por:
+
+$$ v(t) = e^{-\sigma t} \cdot [B_1 \cdot cos(\omega_d \cdot t) + B_2 \cdot sen(\omega_d \cdot t)] $$
+
+Sendo **ω_d** a Frequência natural de ressonância, dada pela equação:
+
+$$ \omega_d = \sqrt{\omega_0^2 - \sigma^2} $$
+
+Como entrada do programa, é fornecida a tensão inicial no capacitor, a qual também poderia ser determinada por meio da análise da tensão no capacitor para t = 0⁻. Ou seja, conseguimos atribuir o valor 0 para t e igualar a equação ao valor de v<sub>C</sub>(0).
+
+$$ v_{C}(0) = e^{-\sigma 0} \cdot [B_1 \cdot cos(\omega_d \cdot 0) + B_2 \cdot sen(\omega_d \cdot 0)] \therefore B_1 = v_{C}(0)$$
+
+Para obter uma segunda equação para conseguir determinar B<sub>@</sub>, devemos realizar a análise do circuito. A partir de um dos nós essenciais, podemos aplicar a Lei de Kirchhoff das Correntes (LKC), chegando à conclusão de que:
+
+$$ i_L (t) = i_C (t) + i_R (t) $$
+
+$$ \therefore $$ 
+
+$$i_L (t) = C \cdot \frac{dv_{C}(t)}{dt}^{t=t} + \frac{v_{R}(t)}{R} $$
+
+Como entrada do programa, é fornecida a corrente inicial no indutor (i<sub>L</sub>0), a qual também poderia ser determinada por meio da análise da corrente no indutor para t = 0⁻. Com isso, podemos realizar a análise dessa fórmula para t = 0. Mas antes, é essencial determinar a derivada de v<sub>C</sub>(t) e igualar t = 0.
+
+$$ \frac{d}{dt} e^{-\sigma t} \cdot [B_1 \cdot cos(\omega_d \cdot t) + B_2 \cdot sen(\omega_d \cdot t)] = $$
+
+$$
+e^{-\sigma t} \left( -B_1 \omega_d \sin(\omega_d t) + B_2 \omega_d \cos(\omega_d t) \right) - \sigma e^{-\sigma t} \left( B_1 \cos(\omega_d t) + B_2 \sin(\omega_d t) \right)
+$$
 
 
 ## :wrench: Como rodar
