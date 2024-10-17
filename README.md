@@ -150,7 +150,47 @@ Para achar o tempo para o alcance da tensão máxima ou mínima, é necessário 
 
 $$ tm = \frac{ln |A_1s_1| - ln |-A_2s_2|}{s_2 - s_1}$$
 
-Possuindo todas as variáveis da equação e o tm, basta calcular v(tm) e achar o valor desejado. 
+Possuindo todas as variáveis da equação e o tm, basta calcular v(tm) e achar o valor esperado. 
+
+- Para **σ**<sup>2</sup> = **ω<sub>0</sub>**<sup>2</sup> - Circuito Criticamente Amortecido
+
+A fórmula geral da tensão nos componenetes do Circuito Criticamente Amortecido é dada por:
+
+$$ v(t) = (A_1t + A_2) e^{-\sigma t}$$
+
+Como entrada do programa, é fornecida a tensão inicial no capacitor, a qual também poderia ser determinada por meio da análise da tensão no capacitor para t = 0⁻. Ou seja, conseguimos atribuir o valor 0 para t e igualar a equação ao valor de v<sub>C</sub>(0).
+
+$$ v_{C}(0) = (A_1 \cdot 0 + A_2) e^{-\sigma \cdot 0} \therefore A_2 = v_{C}(0)$$
+
+Para obter uma segunda equação para conseguir determinar A<sub>1</sub>, devemos realizar a análise do circuito. A partir de um dos nós essenciais, podemos aplicar a Lei de Kirchhoff das Correntes (LKC), chegando à conclusão de que:
+
+$$ i_L (t) = i_C (t) + i_R (t) $$
+
+$$ \therefore $$ 
+
+$$i_L (t) = C \cdot \frac{dv_{C}(t)}{dt}^{t=t} + \frac{v_{R}(t)}{R} $$
+
+Como entrada do programa, é fornecida a corrente inicial no indutor (i<sub>L</sub>0), a qual também poderia ser determinada por meio da análise da corrente no indutor para t = 0⁻. Com isso, podemos realizar a análise dessa fórmula para t = 0. Mas antes, é essencial determinar a derivada de v<sub>C</sub>(t) e igualar t = 0.
+
+$$ \frac{d}{dt} (A_1t + A_2) e^{-\sigma t} = A_1 \cdot e^{-\sigma t} - \sigma (A_1t + A_2) e^{-\sigma t} $$
+
+Utilizando y para representar a equação resultante de t = 0:
+
+$$ y = \frac{dv_{C}(t)}{dt}^{t=0} = A_1 - \sigma \cdot A_2 $$
+
+Se:
+
+$$ y = \frac{dv_{C}(t)}{dt}^{t=0} = \frac{i_{C}(0)}{C} $$
+
+Então:
+
+$$ A_1 = \frac{i_{C}(0)}{C} + \sigma \cdot A_2 $$
+
+Para achar o tempo para o alcance da tensão máxima ou mínima, é necessário derivar v(t) e igualar a 0. Reutilizando a conta já relizada e fazendo algumas manipulações, chegaremos a:
+
+$$ tm = \frac{1}{\sigma} - \frac{A_2}{A_1} = \frac{A_1-(A_2\sigma)}{A_1\sigma}$$
+
+Possuindo todas as variáveis da equação e o tm, basta calcular v(tm) e achar o valor esperado. 
 
 
 
