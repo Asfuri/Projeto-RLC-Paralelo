@@ -234,7 +234,7 @@ $$ B_2 = \frac{i_C(0)}{C \omega_d} + \frac{\sigma \cdot B_1}{\omega_d} $$
 
 Para achar o tempo para o alcance da tensão máxima ou mínima, é necessário derivar v(t) e igualar a 0. Reutilizando a conta já relizada e fazendo algumas manipulações, que nesse caso, se torna um pouco mais complexo, pois envolve uma divisão estratégica por cos(ω<sub>d</sub>t), chegaremos a:
 
-$$ t_m = \frac{arc tg(\frac{\omega_d \cdot B_2 - \sigma \cdot B_1}{\omega_d \cdot B_1 + \sigma \cdot B_2})}{\omega_d} $$
+$$ \large t_m = \frac{arc tg(\frac{\omega_d \cdot B_2 - \sigma \cdot B_1}{\omega_d \cdot B_1 + \sigma \cdot B_2})}{\omega_d} $$
 
 Possuindo todas as variáveis da equação e o t<sub>m</sub>, basta calcular v(t<sub>m</sub>) e achar o valor esperado. 
 
