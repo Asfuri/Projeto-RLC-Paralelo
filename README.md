@@ -40,7 +40,7 @@ Dependências
 Para compilar
 
 ```sh
-gcc RLC.c
+gcc RLC.c -o RLC.out
 ```
 
 Para rodar
@@ -52,7 +52,7 @@ Para rodar
 ### No Windows
 
 ```sh
-gcc RLC.c
+gcc RLC.c -o RLC.exe
 ```
 
 Para rodar
