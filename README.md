@@ -72,6 +72,8 @@ Este projeto foi desenvolvido utilizando apenas funcionalidades da biblioteca pa
 
 Todas as fórmulas utilizadas foram deduzidas a partir da análise das equações fundamentais com valores literais, ou seja, as variáveis (paramâmetros como coeficientes e constantes, tal como, incógnitas e variáveis dependentes) foram manipuladas com o objetivo de chegar em uma fórmula direta.
 
+**OBS.:** As unidades das fórmulas foram omitidas, de forma que pode complicar o entendimento e uma possível aplicação prática, recomendamos a busca pelas fórmulas originais em fontes relevantes e a tentativa de manipulação das fórmulas pelos métodos aqui aplicados.
+
 Equações fundamentais:
 
 Resistor - Lei de Ohm
@@ -148,9 +150,9 @@ $$
 
 Para achar o tempo para o alcance da tensão máxima ou mínima, é necessário derivar v(t) e igualar a 0. Reutilizando a conta já relizada e fazendo algumas manipulações, chegaremos a:
 
-$$ tm = \frac{ln |A_1s_1| - ln |-A_2s_2|}{s_2 - s_1}$$
+$$ t_m = \frac{ln |A_1s_1| - ln |-A_2s_2|}{s_2 - s_1}$$
 
-Possuindo todas as variáveis da equação e o tm, basta calcular v(tm) e achar o valor esperado. 
+Possuindo todas as variáveis da equação e o t<sub>m</sub>, basta calcular v(t<sub>m</sub>) e achar o valor esperado. 
 
 ### Para **σ**<sup>2</sup> = **ω<sub>0</sub>**<sup>2</sup> - Circuito Criticamente Amortecido
 
@@ -188,9 +190,9 @@ $$ A_1 = \frac{i_{C}(0)}{C} + \sigma \cdot A_2 $$
 
 Para achar o tempo para o alcance da tensão máxima ou mínima, é necessário derivar v(t) e igualar a 0. Reutilizando a conta já relizada e fazendo algumas manipulações, chegaremos a:
 
-$$ tm = \frac{1}{\sigma} - \frac{A_2}{A_1} = \frac{A_1-(A_2\sigma)}{A_1\sigma}$$
+$$ t_m = \frac{1}{\sigma} - \frac{A_2}{A_1} = \frac{A_1-(A_2\sigma)}{A_1\sigma}$$
 
-Possuindo todas as variáveis da equação e o tm, basta calcular v(tm) e achar o valor esperado. 
+Possuindo todas as variáveis da equação e o t<sub>m</sub>, basta calcular v(t<sub>m</sub>) e achar o valor esperado. 
 
 ### Para **σ**<sup>2</sup> < **ω<sub>0</sub>**<sup>2</sup> - Circuito Subamortecido
 
@@ -219,9 +221,22 @@ Como entrada do programa, é fornecida a corrente inicial no indutor (i<sub>L</s
 $$ \frac{d}{dt} e^{-\sigma t} \cdot [B_1 \cdot cos(\omega_d \cdot t) + B_2 \cdot sen(\omega_d \cdot t)] = $$
 
 $$
-e^{-\sigma t} \left( -B_1 \omega_d \sin(\omega_d t) + B_2 \omega_d \cos(\omega_d t) \right) - \sigma e^{-\sigma t} \left( B_1 \cos(\omega_d t) + B_2 \sin(\omega_d t) \right)
+-\sigma e^{-\sigma t} \left[ B_1 cos(\omega_d t) + B_2 sen(\omega_d t) \right] + \omega_d e^{-\sigma t} \left[ -B_1 sen(\omega_d t) + B_2 cos(\omega_d t) \right] ^{t=t}
 $$
 
+Para t = 0 teremos:
+
+$$ - \sigma \cdot B_1 + B_2 \cdot \omega_d = \frac{i_C(0)}{C} $$
+
+Implicando em:
+
+$$ B_2 = \frac{i_C(0)}{C \omega_d} + \frac{\sigma \cdot B_1}{\omega_d} $$
+
+Para achar o tempo para o alcance da tensão máxima ou mínima, é necessário derivar v(t) e igualar a 0. Reutilizando a conta já relizada e fazendo algumas manipulações, que nesse caso, se torna um pouco mais complexo, pois envolve uma divisão estratégica por cos(ω<sub>d</sub>t), chegaremos a:
+
+$$ t_m = \frac{arc tg(\frac{\omega_d \cdot B_2 - \sigma \cdot B_1}{\omega_d \cdot B_1 + \sigma \cdot B_2})}{\omega_d} $$
+
+Possuindo todas as variáveis da equação e o t<sub>m</sub>, basta calcular v(t<sub>m</sub>) e achar o valor esperado. 
 
 ## :wrench: Como rodar
 
