@@ -72,35 +72,33 @@ Este projeto foi desenvolvido utilizando apenas funcionalidades da biblioteca pa
 
 Todas as fórmulas utilizadas foram deduzidas a partir da análise das equações fundamentais com valores literais, ou seja, as variáveis (paramâmetros como coeficientes e constantes, tal como, incógnitas e variáveis dependentes) foram manipuladas com o objetivo de chegar em uma fórmula direta.
 
-**OBS.:** As unidades das fórmulas foram omitidas, de forma que pode complicar o entendimento e uma possível aplicação prática, recomendamos a busca pelas fórmulas originais em fontes relevantes e a tentativa de manipulação das fórmulas pelos métodos aqui aplicados.
-
 Equações fundamentais:
 
 Resistor - Lei de Ohm
 
-$$ V = R * I ∴ v_{R}(t) = R * i_{R}(t) $$
+$$ V = R * I ∴ v_{R}(t) = R * i_{R}(t) \quad (V) $$
 
 Corrente no Capacitor
 
-$$ i_{C}(t) = C \cdot \frac{dv_{C}(t)}{dt} $$
+$$ i_{C}(t) = C \cdot \frac{dv_{C}(t)}{dt}  \quad (A)$$
 
 **σ** (Frequência Neperiana)
 
-$$ \sigma = \frac{1}{2 \cdot R \cdot C} $$
+$$ \sigma = \frac{1}{2 \cdot R \cdot C} \quad (s^{-1}) $$
 
 **ω<sub>0</sub>** (Frequência de ressonância)
 
-$$ \omega_0 = \frac{1}{\sqrt{L \cdot C}} $$
+$$ \omega_0 = \frac{1}{\sqrt{L \cdot C}} \quad (rad/s) $$
 
 ### Para **σ**<sup>2</sup> > **ω<sub>0</sub>**<sup>2</sup> - Circuito Superamortecido
 
-$$ S_1 = -\sigma + \sqrt{\sigma^2 - \omega_0^2} $$
+$$ S_1 = -\sigma + \sqrt{\sigma^2 - \omega_0^2} \quad (V) $$
 
-$$ S_2 = -\sigma - \sqrt{\sigma^2 - \omega_0^2} $$
+$$ S_2 = -\sigma - \sqrt{\sigma^2 - \omega_0^2} \quad (V) $$
 
 A fórmula geral da tensão nos componenetes do Circuito Superamortecido é dada por:
 
-$$ v(t) = A_1 e^{s_1 t} + A_2 e^{s_2 t} $$
+$$ v(t) = A_1 e^{s_1 t} + A_2 e^{s_2 t} \quad (V) $$
 
 Como entrada do programa, é fornecida a tensão inicial no capacitor, a qual também poderia ser determinada por meio da análise da tensão no capacitor para t = 0⁻. Ou seja, conseguimos atribuir o valor 0 para t e igualar a equação ao valor de v<sub>C</sub>(0).
 
@@ -150,7 +148,7 @@ $$
 
 Para achar o tempo para o alcance da tensão máxima ou mínima, é necessário derivar v(t) e igualar a 0. Reutilizando a conta já relizada e fazendo algumas manipulações, chegaremos a:
 
-$$ t_m = \frac{ln |A_1s_1| - ln |-A_2s_2|}{s_2 - s_1}$$
+$$ t_m = \frac{ln |A_1s_1| - ln |-A_2s_2|}{s_2 - s_1} \quad (s)$$
 
 Possuindo todas as variáveis da equação e o t<sub>m</sub>, basta calcular v(t<sub>m</sub>) e achar o valor esperado. 
 
@@ -158,7 +156,7 @@ Possuindo todas as variáveis da equação e o t<sub>m</sub>, basta calcular v(t
 
 A fórmula geral da tensão nos componenetes do Circuito Criticamente Amortecido é dada por:
 
-$$ v(t) = (A_1t + A_2) e^{-\sigma t}$$
+$$ v(t) = (A_1t + A_2) e^{-\sigma t} \quad (V)$$
 
 Como entrada do programa, é fornecida a tensão inicial no capacitor, a qual também poderia ser determinada por meio da análise da tensão no capacitor para t = 0⁻. Ou seja, conseguimos atribuir o valor 0 para t e igualar a equação ao valor de v<sub>C</sub>(0).
 
@@ -190,7 +188,7 @@ $$ A_1 = \frac{i_{C}(0)}{C} + \sigma \cdot A_2 $$
 
 Para achar o tempo para o alcance da tensão máxima ou mínima, é necessário derivar v(t) e igualar a 0. Reutilizando a conta já relizada e fazendo algumas manipulações, chegaremos a:
 
-$$ t_m = \frac{1}{\sigma} - \frac{A_2}{A_1} = \frac{A_1-(A_2\sigma)}{A_1\sigma}$$
+$$ t_m = \frac{1}{\sigma} - \frac{A_2}{A_1} = \frac{A_1-(A_2\sigma)}{A_1\sigma} \quad (s)$$
 
 Possuindo todas as variáveis da equação e o t<sub>m</sub>, basta calcular v(t<sub>m</sub>) e achar o valor esperado. 
 
@@ -198,15 +196,15 @@ Possuindo todas as variáveis da equação e o t<sub>m</sub>, basta calcular v(t
 
 A fórmula geral da tensão nos componenetes do Circuito Subamortecido é dada por:
 
-$$ v(t) = e^{-\sigma t} \cdot [B_1 \cdot cos(\omega_d \cdot t) + B_2 \cdot sen(\omega_d \cdot t)] $$
+$$ v(t) = e^{-\sigma t} \cdot [B_1 \cdot cos(\omega_d \cdot t) + B_2 \cdot sen(\omega_d \cdot t)] \quad (V)$$
 
 Sendo **ω_d** a Frequência natural de ressonância, dada pela equação:
 
-$$ \omega_d = \sqrt{\omega_0^2 - \sigma^2} $$
+$$ \omega_d = \sqrt{\omega_0^2 - \sigma^2} \quad (rad/s)$$
 
 Como entrada do programa, é fornecida a tensão inicial no capacitor, a qual também poderia ser determinada por meio da análise da tensão no capacitor para t = 0⁻. Ou seja, conseguimos atribuir o valor 0 para t e igualar a equação ao valor de v<sub>C</sub>(0).
 
-$$ v_{C}(0) = e^{-\sigma 0} \cdot [B_1 \cdot cos(\omega_d \cdot 0) + B_2 \cdot sen(\omega_d \cdot 0)] \therefore B_1 = v_{C}(0)$$
+$$ v_{C}(0) = e^{-\sigma 0} \cdot [B_1 \cdot cos(\omega_d \cdot 0) + B_2 \cdot sen(\omega_d \cdot 0)] \therefore B_1 = v_{C}(0) \quad (V)$$
 
 Para obter uma segunda equação para conseguir determinar B<sub>@</sub>, devemos realizar a análise do circuito. A partir de um dos nós essenciais, podemos aplicar a Lei de Kirchhoff das Correntes (LKC), chegando à conclusão de que:
 
@@ -234,7 +232,7 @@ $$ B_2 = \frac{i_C(0)}{C \omega_d} + \frac{\sigma \cdot B_1}{\omega_d} $$
 
 Para achar o tempo para o alcance da tensão máxima ou mínima, é necessário derivar v(t) e igualar a 0. Reutilizando a conta já relizada e fazendo algumas manipulações, que nesse caso, se torna um pouco mais complexo, pois envolve uma divisão estratégica por cos(ω<sub>d</sub>t), chegaremos a:
 
-$$ \large t_m = \frac{arc tg(\frac{\omega_d \cdot B_2 - \sigma \cdot B_1}{\omega_d \cdot B_1 + \sigma \cdot B_2})}{\omega_d} $$
+$$ \large t_m = \frac{arc tg(\frac{\omega_d \cdot B_2 - \sigma \cdot B_1}{\omega_d \cdot B_1 + \sigma \cdot B_2})}{\omega_d} \quad (s)$$
 
 Se o tempo resultar em um valor negativo, isso indicará que, matematicamente, haveria um máximo ou mínimo antes de t=0, que é o nosso instante inicial de resposta natural. Para garantir a correção e a congruência com a física do mundo real, somamos meio período da função ao t<sub>m</sub>; ou seja, somamos π/ω<sub>d</sub>.
 
