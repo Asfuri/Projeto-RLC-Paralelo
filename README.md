@@ -70,6 +70,32 @@ Este projeto foi desenvolvido utilizando apenas funcionalidades da biblioteca pa
  
 ### :bar_chart: Fórmulas
 
+Todas as fórmulas utilizadas foram deduzidas a partir da análise das equações fundamentais com valores literais, ou seja, as variáveis (paramâmetros como coeficientes e constantes, tal como, incógnitas e variáveis dependentes) foram manipuladas com o objetivo de chegar em uma fórmula direta.
+
+Equações fundamentais:
+
+Resistor - Lei de Ohm
+
+$$ V = R * I ∴ v_{R}(t) = R * i_{R}(t) $$
+
+Corrente no Capacitor
+
+$$ i_{C}(t) = C \cdot \frac{dv_{C}(t)}{dt} $$
+
+**σ** (Frequência Neperiana)
+
+$$ \sigma = \frac{1}{2 \cdot R \cdot C} $$
+
+**ω<sub>0</sub>** (Frequência de ressonância)
+
+$$ \omega_d = \frac{1}{\sqrt{L \cdot C}} $$
+
+- Para **σ**<sup>2</sup> > **ω<sub>0</sub>**<sup>2</sup> - Circuito Superamortecido
+
+$$ S_1 = -\sigma + \sqrt{\sigma^2 - \omega_0^2} $$
+
+$$ S_2 = -\sigma - \sqrt{\sigma^2 - \omega_0^2} $$
+
 ## :wrench: Como rodar
 
 [**Atenção:** Lembre de baixar o projeto e extraí-lo devidamente do `.zip`.](#zap-simulação-de-circuitos-rlc-paralelo)
