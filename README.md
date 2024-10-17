@@ -128,6 +128,32 @@ Queremos isolar o y, então ficaremos com:
 
 $$ y = \frac{i_{L}(0)}{C} - \frac{v_{C}(0)}{CR} $$
 
+Utilizando de y como uma nova variável de valor determinável, conseguimos nossa 2ª equação. Ficando com o seguinte sistema:
+
+$$
+\begin{cases}
+\quad v_{C}(0) = A_1 + A_2 \\
+\quad y = A_1 s_1 + A_2 s_2 
+\end{cases}
+$$
+
+Que nos leva a:
+
+$$
+\begin{cases}
+\quad A_1 = \frac{y - v_{C}(0)s_1}{s_1 - s_2} \\
+\quad A_2 = \frac{y - v_{C}(0)s_1}{s_2 - s_1}  = v_{C}(0) - A_1
+\end{cases}
+$$
+
+Para achar o tempo para o alcance da tensão máxima ou mínima, é necessário derivar v(t) e igualar a 0. Reutilizando a conta já relizada e fazendo algumas manipulações, chegaremos a:
+
+$$ tm = \frac{ln |A_1s_1| - ln |-A_2s_2|}{s_2 - s_1}$$
+
+Possuindo todas as variáveis da equação e o tm, basta calcular v(tm) e achar o valor desejado. 
+
+
+
 ## :wrench: Como rodar
 
 [**Atenção:** Lembre de baixar o projeto e extraí-lo devidamente do `.zip`.](#zap-simulação-de-circuitos-rlc-paralelo)
