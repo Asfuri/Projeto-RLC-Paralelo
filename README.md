@@ -37,7 +37,7 @@ O programa deve receber os seguintes dados de entrada:
 
 O programa deve fornecer os seguintes dados de saída:
 - Nome(s) do(s) autor(es)
-- Valores de **σ** (Sigma), **ω<sub>0</sub>** (Ômega 0)
+- Valores de **σ** (Sigma, representa a Frequência Neperiana), **ω<sub>0</sub>** (Ômega 0, representa a Frequência de Ressonância)
 - Tipo de circuito e seus respectivos valores específicos, sendo eles:
   - Circuito Superamortecido  ->  s<sub>1</sub>, s<sub>2</sub>, A<sub>1</sub> e A<sub>2</sub>
   - Circuito Criticamente Amortecido  ->  A<sub>1</sub> e A<sub>2</sub>
@@ -53,8 +53,22 @@ Para a padronização das respostas, as condições iniciais para o circuito tê
 ![Captura de tela 2024-10-16 220340](https://github.com/user-attachments/assets/0049c77f-b52f-44cb-b06f-799eb1f9b8b6)
 
 ## :gear: Documentação
-Dependências
 
+Conforme as informações relatadas na seção (Objetivo)[#dart-objetivo-1], a complexidade do programa está nos cálculos a partir das fórmulas vistas na disciplina. Com base nisso, a documentação aqui apresentada dá ênfase a essa complexidade, relevando algumas nuances presentes no código. 
+
+### :abacus: Dependências
+
+Este projeto foi desenvolvido utilizando apenas funcionalidades da biblioteca padrão da Linguagem C[^3][^4], ou seja, nenhuma biblioteca externa foi incluída no código.
+
+[^4]:[Biblioteca Padrão da Linguagem C](https://www.ime.usp.br/~pf/algoritmos/apend/interfaces.html)
+
+- **`<stdio.h>`**:  Usada para operações matemáticas de entrada e saída, como leitura de dados do teclado (`scanf`) e escrita de dados na tela (`printf`).
+  - **Implementação:**  Em interações direta com um usuário, via terminal.
+
+- **`<math.h>`**:  Utilizada para realizar operações matemáticas complexas, como funções trigonométricas (sin, cos), exponenciais (exp) e logarítmicas (log).
+  - **Implementação:**  Essencial nos cálculos incluídos na proposta do programa, como o cálculo da frequência de ressonância, permitindo a análise precisa do comportamento do circuito.
+ 
+### :bar_chart: Fórmulas
 
 ## :wrench: Como rodar
 
