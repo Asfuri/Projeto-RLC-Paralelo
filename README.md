@@ -88,13 +88,45 @@ $$ \sigma = \frac{1}{2 \cdot R \cdot C} $$
 
 **ω<sub>0</sub>** (Frequência de ressonância)
 
-$$ \omega_d = \frac{1}{\sqrt{L \cdot C}} $$
+$$ \omega_0 = \frac{1}{\sqrt{L \cdot C}} $$
 
 - Para **σ**<sup>2</sup> > **ω<sub>0</sub>**<sup>2</sup> - Circuito Superamortecido
 
 $$ S_1 = -\sigma + \sqrt{\sigma^2 - \omega_0^2} $$
 
 $$ S_2 = -\sigma - \sqrt{\sigma^2 - \omega_0^2} $$
+
+A fórmula geral da tensão nos componenetes do Circuito Superamortecido é dada por:
+
+$$ v(t) = A_1 e^{s_1 t} + A_2 e^{s_2 t} $$
+
+Como entrada do programa, é fornecida a tensão inicial no capacitor, a qual também poderia ser determinada por meio da análise da tensão no capacitor para t = 0⁻. Ou seja, conseguimos atribuir o valor 0 para t e igualar a equação ao valor de v<sub>C</sub>(0).
+
+$$ v_{C}(0) = A_1 e^{s_1 0} + A_2 e^{s_2 0} \therefore v_{C}(0) = A_1 + A_2 $$
+
+Para obter uma segunda equação e resolver um sistema de duas equações com duas variáveis distintas, devemos realizar a análise do circuito. A partir de um dos nós essenciais, podemos aplicar a Lei de Kirchhoff das Correntes (LKC), chegando à conclusão de que:
+
+$$ i_L (t) = i_C (t) + i_R (t) $$
+
+$$ \therefore $$ 
+
+$$i_L (t) = C \cdot \frac{dv_{C}(t)}{dt}^{t=t} + \frac{v_{R}(t)}{R} $$
+
+Como entrada do programa, é fornecida a corrente inicial no indutor (i<sub>L</sub>0), a qual também poderia ser determinada por meio da análise da corrente no indutor para t = 0⁻. Com isso, podemos realizar a análise dessa fórmula para t = 0. Mas antes, é essencial determinar a derivada de v<sub>C</sub>(t) e igualar t = 0.
+
+$$ \frac{d}{dt} (A_1 e^{s_1 t} + A_2 e^{s_2 t}) = A_1 s_1 e^{s_1 t} + A_2 s_2 e^{s_2 t} $$
+
+Utilizando y para representar a equação resultante de t = 0:
+
+$$ y = \frac{dv_{C}(t)}{dt}^{t=0} = A_1 s_1 e^{s_1 0} + A_2 s_2 e^{s_2 0} = A_1 s_1 + A_2 s_2 $$
+
+Voltando à equação das correntes para t = 0, sabemos que v<sub>R</sub>(t) = v<sub>C</sub>(t). Como conhecemos esse valor para t = 0, podemos substituí-lo na equação, assim como i<sub>L</sub>(0).
+
+$$i_L (0) = C \cdot y + \frac{v_{C}(0)}{R} $$
+
+Queremos isolar o y, então ficaremos com:
+
+$$ y = \frac{i_{L}(0)}{C} - \frac{v_{C}(0)}{CR} $$
 
 ## :wrench: Como rodar
 
