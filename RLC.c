@@ -83,7 +83,7 @@ void transformarResposta(double resposta, int prefixo) {
     }
 
 // Verifica se o valor é maior ou igual a 10^-9 ou menor ou igual a -10^-9
-  } else if (resposta >= 0.000000001 || resposta <= -0.000000001) {
+  } else {
   // Converte para Nano e exibe o número
     resposta = resposta * 1000000000;
     if (prefixo == 1) {
