@@ -207,7 +207,7 @@ Como entrada do programa, é fornecida a tensão inicial no capacitor, a qual ta
 
 $$ v_{C}(0) = e^{-\sigma 0} \cdot [B_1 \cdot cos(\omega_d \cdot 0) + B_2 \cdot sen(\omega_d \cdot 0)] \therefore B_1 = v_{C}(0) \quad (V)$$
 
-Para obter uma segunda equação para conseguir determinar B<sub>@</sub>, devemos realizar a análise do circuito. A partir de um dos nós essenciais, podemos aplicar a Lei de Kirchhoff das Correntes (LKC), chegando à conclusão de que:
+Para obter uma segunda equação para conseguir determinar B<sub>2</sub>, devemos realizar a análise do circuito. A partir de um dos nós essenciais, podemos aplicar a Lei de Kirchhoff das Correntes (LKC), chegando à conclusão de que:
 
 $$ i_L (t) = i_C (t) + i_R (t) $$
 
