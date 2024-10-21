@@ -309,7 +309,7 @@ int main() {
 
       printf("v(t) = e^( -");
       transformarResposta(sigma, 0);
-      printf(" t ) [ ");
+      printf("t ) [ ");
       if (B1 != 0) {
         transformarResposta(B1, 0);
         printf("cos( ");
@@ -319,12 +319,12 @@ int main() {
       if (B2 > 0) {
         printf("+");
         transformarResposta(B2, 0);
-        printf("sin( ");
+        printf("sen( ");
         transformarResposta(omegad, 0);
         printf(" t )");
       } else if (B2 < 0) {
         transformarResposta(B2, 0);
-        printf("sin( ");
+        printf("sen( ");
         transformarResposta(omegad, 0);
         printf(" t )");
       }
