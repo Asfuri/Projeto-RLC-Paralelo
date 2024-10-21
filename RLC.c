@@ -23,7 +23,6 @@ double checaSeNumero() {
   return num;
 }
 
-
 /*
   Função que transforma e exibe um valor numérico com ou sem prefixos de unidade
   @param resposta = Valor a ser convertido
@@ -36,9 +35,9 @@ double checaSeNumero() {
 */
 void transformarResposta(double resposta, int prefixo) {
 
-// Verifica se o valor é maior ou igual a 10^6 ou menor ou igual a -10^6
+  // Verifica se o valor é maior ou igual a 10^6 ou menor ou igual a -10^6
   if (resposta >= 1000000 || resposta <= -1000000) {
-  // Converte para Mega e exibe o número
+    // Converte para Mega e exibe o número
     resposta = resposta / 1000000;
     if (prefixo == 1) {
       printf("%g M", resposta);
@@ -46,9 +45,9 @@ void transformarResposta(double resposta, int prefixo) {
       printf("%g * 10^6", resposta);
     }
 
-// Verifica se o valor é maior ou igual a 10^3 ou menor ou igual a -10^3
+    // Verifica se o valor é maior ou igual a 10^3 ou menor ou igual a -10^3
   } else if (resposta >= 1000 || resposta <= -1000) {
-  // Converte para Quilo e exibe o número
+    // Converte para Quilo e exibe o número
     resposta = resposta / 1000;
     if (prefixo == 1) {
       printf("%g k", resposta);
@@ -56,15 +55,15 @@ void transformarResposta(double resposta, int prefixo) {
       printf("%g * 10^3", resposta);
     }
 
-// Verifica se o valor é maior ou igual a 10^0 ou menor ou igual a -10^0
-  } else if (resposta >= 1 || resposta <= -1) {
-  // Exibe o número
+    // Verifica se o valor é maior ou igual a 10^0 ou menor ou igual a -10^0
+  } else if (resposta >= 1 || resposta <= -1 || resposta == 0) {
+    // Exibe o número
     resposta = resposta;
     printf("%g ", resposta);
 
-// Verifica se o valor é maior ou igual a 10^-3 ou menor ou igual a -10^-3
+    // Verifica se o valor é maior ou igual a 10^-3 ou menor ou igual a -10^-3
   } else if (resposta >= 0.001 || resposta <= -0.001) {
-  // Converte para Mili e exibe o número
+    // Converte para Mili e exibe o número
     resposta = resposta * 1000;
     if (prefixo == 1) {
       printf("%g m", resposta);
@@ -72,9 +71,9 @@ void transformarResposta(double resposta, int prefixo) {
       printf("%g * 10^-3", resposta);
     }
 
-// Verifica se o valor é maior ou igual a 10^-6 ou menor ou igual a -10^-6
+    // Verifica se o valor é maior ou igual a 10^-6 ou menor ou igual a -10^-6
   } else if (resposta >= 0.000001 || resposta <= -0.000001) {
-  // Converte para Micro e exibe o número
+    // Converte para Micro e exibe o número
     resposta = resposta * 1000000;
     if (prefixo == 1) {
       printf("%g u", resposta);
@@ -82,9 +81,9 @@ void transformarResposta(double resposta, int prefixo) {
       printf("%g * 10^-6", resposta);
     }
 
-// Verifica se o valor é maior ou igual a 10^-9 ou menor ou igual a -10^-9
+    // Verifica se o valor é maior ou igual a 10^-9 ou menor ou igual a -10^-9
   } else {
-  // Converte para Nano e exibe o número
+    // Converte para Nano e exibe o número
     resposta = resposta * 1000000000;
     if (prefixo == 1) {
       printf("%g n", resposta);
@@ -193,7 +192,7 @@ int main() {
       printf("\nS2 = ");
       transformarResposta(s2, 0);
 
-      // Calcula A2 e A2 e exibe
+      // Calcula A1 e A2 e exibe
       printf("\nA1 = ");
       double A1, A2;
       A2 = (y - s1 * vc0) / (s2 - s1);
@@ -212,6 +211,26 @@ int main() {
       vtm = A1 * exp(s1 * tm) + A2 * exp(s2 * tm);
       transformarResposta(vtm, 1);
       printf("V\n");
+      printf("v(t) = ");
+      if (A1 != 0) {
+        transformarResposta(A1, 0);
+        printf("e^( ");
+        transformarResposta(s1, 0);
+        printf(" t ) ");
+      }
+      if (A2 > 0) {
+        printf("+");
+        transformarResposta(A2, 0);
+        printf("e^( ");
+        transformarResposta(s2, 0);
+        printf(" t )  (V)");
+      } else if (A2 < 0) {
+        transformarResposta(A2, 0);
+        printf("e^( ");
+        transformarResposta(s2, 0);
+        printf(" t )  (V)");
+      }
+      printf("\n");
 
       // Caso o circuito seja criticamente amortecido
     } else if (sigma == omega0) {
@@ -241,10 +260,25 @@ int main() {
       transformarResposta(vtm, 1);
       printf("V\n");
 
+      printf("v(t) = ( ");
+      if (A1 != 0) {
+        transformarResposta(A1, 0);
+        printf(" t ");
+      }
+      if (A2 > 0) {
+        printf("+");
+        transformarResposta(A2, 0);
+      } else if (A2 < 0) {
+        transformarResposta(A2, 0);
+      }
+      printf(") e^( ");
+      transformarResposta(sigma, 0);
+      printf(" t )  (V)\n");
+
       // Caso o circuito seja subamortecido
     } else {
       double omegad, B1, B2;
-      
+
       // calcula omegad
       omegad = sqrt(pow(omega0, 2) - pow(sigma, 2));
       printf("Circuito Subamortecido\n");
@@ -272,6 +306,29 @@ int main() {
       vtm = exp(-sigma * tm) * (B1 * cos(omegad * tm) + B2 * sin(omegad * tm));
       transformarResposta(vtm, 1);
       printf("V\n");
+
+      printf("v(t) = e^( -");
+      transformarResposta(sigma, 0);
+      printf(" t ) [ ");
+      if (B1 != 0) {
+        transformarResposta(B1, 0);
+        printf("cos( ");
+        transformarResposta(omegad, 0);
+        printf(" t ) ");
+      }
+      if (B2 > 0) {
+        printf("+");
+        transformarResposta(B2, 0);
+        printf("sin( ");
+        transformarResposta(omegad, 0);
+        printf(" t )");
+      } else if (B2 < 0) {
+        transformarResposta(B2, 0);
+        printf("sin( ");
+        transformarResposta(omegad, 0);
+        printf(" t )");
+      }
+      printf("]  (V)\n");
     }
     tentarNovamente = 0;
     printf("Quer tentar novamente? (1-Sim 0-Nao)\n");
