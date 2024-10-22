@@ -204,6 +204,7 @@ int main() {
 
       // Calcula tm
       tm = -(log(fabs(-(A1 * s1) / (A2 * s2))) / (s1 - s2));
+      if (tm < 0) tm = 0;
       printf("tm = ");
       transformarResposta(tm, 1);
       // Calcula vtm
@@ -252,6 +253,7 @@ int main() {
       // Calcula tm
       printf("\ntm = ");
       tm = (A1 - A2 * sigma) / (A1 * sigma);
+      if (tm < 0) tm = 0;
       transformarResposta(tm, 1);
 
       // Calcula vtm
