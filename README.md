@@ -93,9 +93,9 @@ $$ \omega_0 = \frac{1}{\sqrt{L \cdot C}} \quad (rad/s) $$
 
 ### Para **σ**<sup>2</sup> > **ω<sub>0</sub>**<sup>2</sup> - Circuito Superamortecido
 
-$$ S_1 = -\sigma + \sqrt{\sigma^2 - \omega_0^2} \quad (V) $$
+$$ S_1 = -\sigma + \sqrt{\sigma^2 - \omega_0^2} $$
 
-$$ S_2 = -\sigma - \sqrt{\sigma^2 - \omega_0^2} \quad (V) $$
+$$ S_2 = -\sigma - \sqrt{\sigma^2 - \omega_0^2} $$
 
 A fórmula geral da tensão nos componenetes do Circuito Superamortecido é dada por:
 
